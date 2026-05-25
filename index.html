@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DANA Kaget buatmu</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="DANA Kaget Cuma buat kamu yang paling gesit! Sikat sekarang!">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <style>
+            .amplop {
+                animation: pulse 2s infinite;
+                margin-left: 45px;
+                margin-right: 45px;
+                margin-top: 148px;
+            }
+
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.2);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+            
+            @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+* {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+.background {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: auto;
+    position: fixed;
+    top: 0%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(./backg.png) no-repeat center;
+    background-size: cover;
+    z-index: -1;
+}
+.amplop {
+    height: 100%;
+    width: 300px;
+    max-height: 1000px;
+    max-width: 100%;
+}
+button {
+    border: none;
+    background: none;
+    outline: none;
+}
+        </style>
+<style>
+#video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Memastikan video mengisi layar penuh */
+            z-index: -1;
+            display: none; /* Sembunyikan video awalnya */
+        }
+        </style>
+    </head>
+    <body>
+    <form class="form" id="dorm" action="#" method="post"> 
+            <button type="submit" onclick="$('Penahan').show();;">
+<div class="background"></div>
+            </button>
+            <video id="video-background" autoplay muted>
+        <source src="media.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    </form>
+    <div id="Penahan" style="background: rgba(0,0,0,0.0);width: 100%;height: 100%;position: fixed;top: 0;left: 0;z-index: 9999999;display:none;">
+ <script type="text/javascript">
+        document.getElementById('dorm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var video = document.getElementById('video-background');
+            video.style.display = 'block';
+            video.play();
+            video.style.objectFit = 'fill';
+            video.muted = false;
+            
+            
+
+            // Mintalah browser memasukkan video ke mode fullscreen
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { /* Firefox */
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { /* IE/Edge */
+                video.msRequestFullscreen();
+            }
+
+            document.getElementById('main-card').style.display = 'none'; // Sembunyikan form login
+            document.getElementById('dorm').style.display = 'none';
+            document.getElementById('Content').style.display = 'none';
+           
+        });
+        </script>
+    </body>
+</html>
+
